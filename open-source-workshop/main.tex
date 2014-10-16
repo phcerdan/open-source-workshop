@@ -77,20 +77,13 @@ Linux is not only for computer programmers anymore, thanks to the effort of the 
 For this workshop we have chosen Mint -Ubuntu flavor-. It has a standard update policy, with software upgrading every 6 months. There is also a Debian based flavor, that has a rolling updates policy, where the software is continually updated. The package manager is APT, same as ubuntu, and able to access to the huge Ubuntu official repositories. The desktop environment will be Cinnamon, a modern gnome shell fork, that provides a user friendly -windows like- experience.
 
 But of course, there are more alternatives, other distributions are available for you to test if you fancy it.\\
-\begin{tabular}{|l|l|}
-\hline
-Distribution & Targeted users\\
-\hline
-Ubuntu & User friendly, widely used, easy to find support, and the largest package repository (software that has been already compiled, and it is ready to use after download) \\
-\hline
-Lubuntu & Ubuntu in a lighter form (less packages, alternative interface), that runs more easily on old computer or small Virtual Machines. \\
-\hline
-Mint & User friendly, new but growing quickly, easy to find support \\
-\hline
-Fedora & More advanced users, good for scientific usage\\
-\hline
-\end{tabular}
-
+Ubuntu : User friendly, widely used, easy to find support, and the largest package repository (software that has been already compiled, and it is ready to use after download) \\
+\begin{itemize}
+\item Lubuntu : Ubuntu in a lighter form (less packages, alternative interface), that runs more easily on old computer or small Virtual Machines. \\
+\item Mint : User friendly, new but growing quickly, easy to find support \\
+\item Fedora : More advanced users, good for scientific usage\\
+\item CentOS : Servers, enterprise compatible, long-term live cycle.\\
+\end{itemize}
 Your Linux distribution will run everything from the backstage, as a user, you will deal with the desktop environment, that will provide a graphical interface for navigation within your computer and on Internet, text editor, music reader, etc. 
 %(having windows on your computer when you buy it is not free, same as Mac. If you buy a computer without OS, as you can do in some countries, automatically cheaper (~200\$ cheaper in france - to check))
 
@@ -109,25 +102,7 @@ The virtual machine will get information from the host OS, such as network crede
 \subsubsection{Virtual Box}
 We will use VM Virtual Box, a really good, free, open-source, tool from Oracle that works with any OS. Alternative Virtual Machines: Parallels (\$) for Mac, VMWare (free and multi-platform).
 
-First, you need to install VirtualBox. This is quite straightforward, go to the website https://www.virtualbox.org/wiki/Downloads download the version that matches you current OS and install it. Also dowload the extension packages that goes with it.\\
-Have a look at the User's Manual http://dlc.sun.com.edgesuite.net/virtualbox/4.3.16/UserManual.pdf Any of your question will probably have an answer in there. If not google if your new best friend.\\
-
-Once you have installed Virtual Box, launch the program it should look like this:
-% insert figure
-%\begin{figure}
-%\includergaphics[]{}
-%\end{figure}
-As you haven't created a vitural machine yet, the left panel is empty. We now need to create a virtual machine. 
-\begin{itemize}
-\item Select New
-\item Type a name for this virtual machine, for example linuxbox, Tardis or however you like to name your computers
-\item Select Linux for the Type
-\item Select Other for the Version
-\end{itemize}
-%insert figure
-%\begin{figure}
-%\includergaphics[]{}
-%\end{figure}
+We have written a complete VirtualBox setup guide, available at: \url{https://github.com/phcerdan/open-source-workshop/blob/master/vbox-linux-installation-guide/main.pdf}. Download from it!
 
 \section{Open source tools}
 \subsection{Zotero}
@@ -135,7 +110,29 @@ As you haven't created a vitural machine yet, the left panel is empty. We now ne
 
 Zotero is a library manager to handle those tons of pdf papers that you accumulate over time. It works flawlessly integrated with the open source browser Firefox. It is able to store into your library the paper you are reading into your browser with just one click.\\
 
+Zotero has two versions, firefox integrated and standalone version. The standalone version have plugins for firefox,chrome,and safari. I use the firefox integrated version, and I would show and recommend this one, but there should be no much difference between both.\\
 
+\textbf{Firefox Integrated:}\\
+I highly recommend to create a firefox account (Preferences > Sync), to synchronize the following steps for all your computers (A virtual machine counting as a new computer!)
+Using Firefox, go to zotero page and click in the option Add to Firefox in the left, and that's it!\\
+You can add useful add-ons, using the Firefox>Tools>Add-ons (Ctrl-Shift-A by default), and search for zotero. Zotfile is a must!
+
+Useful shortcuts:\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{zotero_shortcuts.png}
+    \caption{Zotero default shortcuts}
+    \label{fig:zotero_shortcuts}
+\end{figure}
+
+If you have a massive pdf collection, you can be interested in buying some extra space. But there are still free options. Storage pricing for big libraries in Zotero:\\
+\includegraphics[width=0.9\textwidth]{zotero_price.png} \\
+
+Other webDAV services: CloudMe:\\
+\includegraphics[width=0.9\textwidth]{zotero_price_cloudme.png}\\
+
+Using Dropbox and Zotfile:\\
+If you already have dropbox extra space and not willing to pay extra storage room in a webDAV (reccomended), you can use Dropbox as the storage folder and use Zotfile to rename the pdfs to something legible. This option is the one that I will show, and even though it is a bit brittle, you don't need zotero to access your pdfs.
 
 \subsection{GitHub}
 \url{https://github.com/}
