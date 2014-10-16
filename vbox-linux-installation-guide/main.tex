@@ -1,0 +1,305 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+%\usepackage[dvipdfmx]{graphicx}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{caption} % [labelformat=empty]{caption}]
+\captionsetup[subfigure]{labelformat=empty}
+\usepackage[margin=0.4in]{geometry}
+\hypersetup{urlcolor=blue, linkcolor=blue, colorlinks=true} % Colors hyperlinks in blue -
+\usepackage{listings}
+\lstset{language=bash}
+\title{ Virtual Box setup and Mint installation guide}
+
+\author{Pablo Hernandez, Elsa Guillot. Under CC-by 4.0 license}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.2\linewidth]{by.png}
+%     \caption{Creative Commons License}
+%     \label{fig:by}
+% \end{figure}
+
+\section{Introduction}
+This will guide the installation of Virtual Box, the creation of a Virtual Machine, and the installation of Linux Mint (Ubuntu) on it.\\
+
+\noindent First, connect to the wireless network provided for the workshop: \textbf{MUevents} using this \textbf{password : Op3nSourc3}.
+\section{Installing Virtual Box}
+\label{sec:vb}
+Go to \url{https://www.virtualbox.org/wiki/Downloads} and download the VirtualBox platform package for your host OS (Windows, or OS X -Mac-). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{./VBDownload.png}
+    \caption{Virtual Box Download page}
+    \label{fig:VMDownload}
+\end{figure}
+
+Execute the downloaded binary and install it in the usual way. Default folder should be good.
+\section{Get the .iso file of your preferred Linux distribution}
+\label{sec:iso}
+(You can skip this if you already have a bootable DVD)\\
+
+The Linux distros (Mint, Ubuntu, Fedora, CentOS) are usually distributed in a .iso format. This format is ready to be burned into a CD or DVD, or even into a bootable USB.\\
+Virtual box is able to boot from the .iso directly, so you don't need any extra physical media.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{mintDownload.png}
+    \caption{Mint Download web}
+    \label{fig:mintDownload}
+\end{figure}
+
+The .iso can be downloaded from the download section of the distribution of your choice. The size varies, but usually is around 1GB. We provide bootable DVD's, and also .iso files in non-bootable usb hard drives.\\
+Remember where you have stored the .iso file, and you are ready to install the Virtual Machine.\\
+
+\textit{Note: New laptops and new Macs in particular don't have DVD drives. If you are willing to install linux in a partition of your HD, you will need to create a bootable usb flash drive. It is not that hard, if you need it, google it!}
+
+\section{Creating a Virtual Machine}
+Launch virtual box, and press the New button to create a new virtual machine. You can install almost any OS.  Sadly, you can not install a vanilla OS X because running OS X outside Mac Hardware is forbidden by their license.\\
+
+\noindent
+\hyperref[fig:VBCreation]{Select Linux and Ubuntu64}, if you can not because you haven't enabled VT-x emulation in your BIOS, select Ubuntu32!\\
+The Mint version we are going to install is based on Ubuntu, there is a Debian version as well. Of course, if you want to install a different distro, select the correspondent option.\\
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{VBCreation.png}
+%     \caption{Press New and select Ubuntu 64 }
+%     \label{fig:VBCreation}
+% \end{figure}
+
+\noindent
+\hyperref[fig:VB_memory]{Select memory:} Virtual Machines are expensive in terms of resources consumptions, we want as many memory as possible, but without drowning our host OS. Select 2024 MB minimum, we recommend 4096MB if you can afford it. If you have less than 6GB of RAM in your system, we should install Xcfe, a light weight desktop environment instead of Cinnamon. Give us a call in this case!\\
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{VB_memory.png}
+%     \caption{Memory selection, 2048MB minimum, 4096 recommended. If you have less than 6GB RAM in your system, give us a call!}
+%     \label{fig:VB_memory}
+% \end{figure}
+
+
+\begin{figure}[H]
+    \begin{minipage}{0.5\linewidth}
+        \subfloat[Press New and select Ubuntu 64]{%
+            \includegraphics[width=0.95\linewidth]{VBCreation.png}%
+            \label{fig:VBCreation}}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \subfloat[Memory selection, 2048MB minimum, 4096MB recommended. If you have less than 6GB RAM in your system, give us a call!]{%
+            \includegraphics[width=0.95\linewidth]{VB_memory.png}%
+            \label{fig:VB_memory}}
+    \end{minipage}
+\end{figure}
+
+\subsection{Virtual hard drive}
+\noindent
+The next step is to \hyperref[fig:VB_createHD]{create a virtual HD.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{VB_createHD.png}
+    \caption{Create a new virtual HD. You can use the other options to import Virtual Machines between computers}
+    \label{fig:VB_createHD}
+\end{figure}
+
+\noindent
+\hyperref[fig:VB_createHD2]{Select the default .vdi format} and \hyperref[fig:VB_createHD3]{select the type of HD.}\\
+\noindent
+If you are just playing around, dynamically sized consumes less space of your HD.\\
+This will be all the space your virtual machine will have access to. Fixed size HD allocate the space beforehand, so they are faster and recommended for a heavy use, long term machine.\\
+
+\begin{figure}[H]
+    \begin{minipage}{0.5\linewidth}
+        \subfloat[Select the default .vdi format for your virtual HD]{%
+            \includegraphics[width=0.95\linewidth]{VB_createHD2.png}%
+            \label{fig:VB_createHD2}}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        % \begin{minipage}{0.5\linewidth}
+        \subfloat[Select fixed size for long term, heavily used virtual machines.]{%
+            \includegraphics[width=0.95\linewidth]{VB_createHD3.png}%
+            \label{fig:VB_createHD3}}
+        %\hspace{1pt}
+    \end{minipage}
+\end{figure}
+
+
+We will \hyperref[fig:VB_createHDsize]{allocate a minimum of 10GB}, with 20-30GB recommended, it depends on the space available on your computer.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{VB_createHDsize.png}
+    \caption{Select a minimum of 10GB, 30GB recommended}
+    \label{fig:VB_createHDsize}
+\end{figure}
+
+Created!
+\subsection{Settings}
+We are ready to install Mint now, but to provide a better experience, we will improve the performance of our virtual machine with a few settings\\
+Note that if you have installed a Ubuntu32 machine because you BIOS or motherboard don't have VT-x enabled, you won't be able to improve the performance, but it will still run.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{VB_settings_processor.png}
+    \caption{Enable PAE/NX, and select half of your CPUS}
+    \label{fig:VB_settings_processor}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{VB_settings_video.png}
+    \caption{Enable 3D acceleration, and maximize the memory capacity}
+    \label{fig:VB_settings_video}
+\end{figure}
+\noindent
+\textit{OPTIONAL:\\
+If you want to have a shared folder between your host and guest (the virtual machine), you can enable it from the options. Just select your home directory (C:\textbackslash Users\textbackslash YourName), and name the folder as sharedfolder\_virtual, or similar.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{VB_settings_sharedfolder.png}
+    \caption{Optional. Enable a shared folder selecting your home directory and name it accordingly}
+    \label{fig:VB_settings_sharedfolder}
+\end{figure}
+
+Now we are at full speed to install Mint!
+
+\section{Installing Mint} 
+Use the start button to launch your freshly installed Virtual Machine.\\
+\noindent Virtual Box recognizes that the virtual hard drive is empty, and will ask you to point to an .iso file, or to a bootable DVD or bootable USB sticker.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{vb_selectdisk.png}
+    \caption{Select a .iso file, bootable DVD or bootable USB containing your chosen Linux distribution}
+    \label{fig:vb_selectdisk}
+\end{figure}
+
+This will launch mint as a live session, with nothing yet installed in the hard drive. But we want to install it, before clicking in the Install Linux Mint shortcut in the desktop, we want to change the repository servers from the far UK to the Aussie neighbors.
+
+
+\begin{figure}[H]
+    \begin{minipage}{0.5\linewidth}
+        \subfloat[From the start menu, search for the app Software Sources]{%
+            \includegraphics[width=0.95\linewidth]{vb_mint_selectsource.png}%
+            \label{fig:vb_source}}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        % \begin{minipage}{0.5\linewidth}
+        \subfloat[Select Australian servers for Mint and Ubuntu repositories]{%
+            \includegraphics[width=0.95\linewidth]{vb_mint_selectservers.png}%
+            \label{fig:vb_servers}}
+        %\hspace{1pt}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[0. This is a live session of Mint, after change the servers, click the Install Linux Mint to begin]{%
+        \includegraphics[width=0.4\linewidth]{vb_mint_install0.png}%
+        \label{fig:vb_mint_install0}}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{minipage}{0.5\linewidth}
+
+        \subfloat[1. Erase the disk(the virtual disk) and install Mint]{
+            \includegraphics[width=0.9\linewidth]{vb_mint_erase.png}
+            \label{fig:vb_mint_erase}
+        }
+        \hspace{1pt}
+        \subfloat[3. Select the keyboard layout]{
+            \includegraphics[width=0.9\linewidth]{vb_mint_key.png}
+            \label{fig:vb_mint_keyboard}}
+        \hspace{1pt}
+        \subfloat[5. Create your user profile]{
+            \includegraphics[width=0.9\linewidth]{vb_mint_user.png}
+            \label{fig:vb_mint_user}}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \subfloat[2. Select The language for the installation]{%
+            \includegraphics[width=0.9\linewidth]{vb_mint_welcome.png}%
+            \label{fig:vb_mint_welcome}}
+        \hspace{1pt}
+        \subfloat[4. Select the local time]{
+            \includegraphics[width=0.9\linewidth]{vb_mint_zone.png}
+            \label{fig:vb_mint_zone}
+        }
+        \hspace{1pt}
+        \subfloat[6. The installation process will take a while depending on your computer. It will update files if you have access to internet]{
+            \includegraphics[width=0.8\linewidth]{vb_mint_installing.png}
+            \label{fig:vb_mint_installing}}
+    \end{minipage}
+\end{figure}
+
+
+
+\section{Massey Proxy settings}
+\label{sec:massey_proxy_settings}
+In this workshop we have access to a special wireless network independent from the regular Massey network. But if you connect to a network behind a proxy, such as Massey, you won't be able to access internet.\\
+To solve this, we will have to edit some delicate files!\\
+\begin{lstlisting}
+    nano ~/proxy.sh
+\end{lstlisting}
+nano is the default editor of Ubuntu, to exit press Ctrl+x, and a message will ask you if you want save, press 'y'.\\ Type in proxy.sh:\\
+\textbf{export http\_proxy=http://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
+\textbf{export https\_proxy=https://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
+
+Press Ctrl+x, then 'y'. And back to the console:\\
+\begin{lstlisting}
+    sudo cp ~/proxy.sh /etc/profiles.d
+\end{lstlisting}
+\begin{lstlisting}
+    sudo cp /etc/sudoers ~/sudoers_backup
+    sudo visudo
+\end{lstlisting}
+And using nano, next to the lines starting with Defaults ... , type:\\
+\textbf{Defaults        env\_keep+="http\_proxy https\_proxy"}
+
+Now log-out from the session (no restart required), log in again and you will be able to run 'sudo apt-get update' from Massey network.
+
+
+\section{FAQ}
+\subsection{Enable Google search at Firefox in Mint}
+Follow the instructions from this official page: \url{http://www.linuxmint.com/searchengines.php}\\
+
+\section{Extra: Installing VirtualBox Guest Additions}
+Virtual Box Guest Additions is able to provide extra hardware information from your host to your virtual machine, specially the graphic card. And also to enjoy the virtual machine experience at full.\\
+\noindent
+You need this to see your virtual machine at full resolution, and also to share the clipboard (copy and paste) with your host.
+
+It is already installed from the official repositories, it is usually a bit outdated, but at the same time has been tested to work well with the current kernel version of your Linux distro.\\
+Take this as an \textbf{optional exercise} and do it \textbf{only if you are having problems} with the Guest Additions!
+
+First we want to remove the Vbox version installed via the repository.\\
+Open a terminal and type:
+\begin{lstlisting}
+    sudo apt-get purge virtualbox*
+\end{lstlisting}
+Confirm that you want to remove the three virtual-box packages: virtualbox-guest-dkms, virtualbox-guest-utils, and virtualbox-guest-x11.
+
+The latest guest additions comes with the virtual box software. To install it go to the VirtualBox menu embedded at the top of the screen of your Linux.\\
+\noindent Select: Devices > Insert Guest Additions
+
+\noindent This should trigger an autorun process, but nothing happens we will do it manually. Open a terminal and type:
+
+\begin{lstlisting}
+    cd /media/$USER/VBOX*
+    ls
+\end{lstlisting}
+
+Remember that you can use the Tab key to autocomplete while you are writing.\\
+
+Type sudo to run it as root:
+
+\begin{lstlisting}
+    sudo ./VBoxLinuxAdditionsRun.sh
+\end{lstlisting}
+
+\noindent You will require to restart the virtual machine after the installation.
+
+\end{document}
