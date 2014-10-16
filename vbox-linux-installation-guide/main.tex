@@ -238,31 +238,6 @@ This will launch mint as a live session, with nothing yet installed in the hard 
 
 
 
-\section{Massey Proxy settings}
-\label{sec:massey_proxy_settings}
-In this workshop we have access to a special wireless network independent from the regular Massey network. But if you connect to a network behind a proxy, such as Massey, you won't be able to access internet.\\
-To solve this, we will have to edit some delicate files!\\
-\begin{lstlisting}
-    nano ~/proxy.sh
-\end{lstlisting}
-nano is the default editor of Ubuntu, to exit press Ctrl+x, and a message will ask you if you want save, press 'y'.\\ Type in proxy.sh:\\
-\textbf{export http\_proxy=http://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
-\textbf{export https\_proxy=https://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
-
-Press Ctrl+x, then 'y'. And back to the console:\\
-\begin{lstlisting}
-    sudo cp ~/proxy.sh /etc/profiles.d
-\end{lstlisting}
-\begin{lstlisting}
-    sudo cp /etc/sudoers ~/sudoers_backup
-    sudo visudo
-\end{lstlisting}
-And using nano, next to the lines starting with Defaults ... , type:\\
-\textbf{Defaults        env\_keep+="http\_proxy https\_proxy"}
-
-Now log-out from the session (no restart required), log in again and you will be able to run 'sudo apt-get update' from Massey network.
-
-
 \section{FAQ}
 \subsection{Enable Google search at Firefox in Mint}
 Follow the instructions from this official page: \url{http://www.linuxmint.com/searchengines.php}\\
@@ -301,5 +276,33 @@ Type sudo to run it as root:
 \end{lstlisting}
 
 \noindent You will require to restart the virtual machine after the installation.
+
+\section{Extra: Massey Proxy settings}
+\label{sec:massey_proxy_settings}
+In this workshop we have access to a special wireless network independent from the regular Massey network. But if you connect to a network behind a proxy, such as Massey, you won't be able to access internet. Create a new file with your proxy settings on it: \\
+\begin{lstlisting}
+    nano ~/proxy.sh
+\end{lstlisting}
+nano is the default editor of Ubuntu, to exit press Ctrl+x, and a message will ask you if you want save, press 'y'.\\ Type in proxy.sh:\\
+\textbf{export http\_proxy=http://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
+\textbf{export https\_proxy=https://YourUser:YourPassword@tur-cache1.massey.ac.nz:8080}\\
+
+Press Ctrl+x, then 'y'. And back to the console:\\
+
+If you want to have access to internet from your console as a regular user (to use github for example) just type:
+
+\begin{lstlisting}
+    source ~/proxy.sh
+\end{lstlisting}
+
+If you want to have access as a root, to update the repositories for example, we will enter in su mode (sudo does this but only for one command)
+
+\begin{lstlisting}
+    su
+    source ~/proxy.sh
+    apt-get update
+    su YOUR USER NAME
+\end{lstlisting}
+This is a minimalistic configuration, and taking into account that you will move your laptop a lot from home to Massey. If you want more long term solutions, your will have to modify some files. You can always change easily the proxy settings for a lot of software using the network configuration GUI, this is only for command line access.
 
 \end{document}

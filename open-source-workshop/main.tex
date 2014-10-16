@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{hyperref}
+\usepackage{float}
 \title{Open Source Workshop}
 
 \author{Pablo Hernandez, Elsa Guillot}
@@ -26,22 +27,18 @@ Welcome to the magic world of open source software. We will guide you through ma
 
 Free and open-source software (FOSS) is computer software that can be classified as both free software and open source software. That is, anyone is freely licensed to use, copy, study, and change the software in any way, and the source code is openly shared so that people are encouraged to voluntarily improve the design of the software.This is in contrast to proprietary software, where the software is under restrictive copyright and the source code is usually hidden from the users.
 
-The benefits of using FOSS can include decreasing software costs, increasing security and stability (especially in regard to malware), protecting privacy, and giving users more control over their own hardware. Free, open-source operating systems such as Linux and descendants of BSD are widely utilized today, powering millions of servers, desktops, smartphones (e.g. Android), and other devices. Free software licences and open-source licenses are used by many software packages.
+The benefits of using FOSS can include decreasing software costs, increasing security and stability (especially in regard to malware), protecting privacy, and giving users more control over their own hardware. Free, open-source operating systems such as Linux are used utilized today, powering millions of servers, desktops, smartphones (e.g. Android), and other devices. Free software licences and open-source licenses are used by many software packages.
 
 \subsection{Why should I use open-source software?}
-Good question! Mumbling...
+Good question! Mumbling...\\
 I think the answer is plainly, because it is more reliable. Not ethics involved. You do not depend on the private company bussiness model...
 \begin{itemize}
-\item Adaptability
-\item Long term 
-\item Data/tools
-\item Reproducibility 
-
-\end{itemize}
-examples in software, but also in commerce, in "cooking and beverages". \\
-Cool example, the ISS switched from windows to debian to get better system (source wikipedia)\\
-Other example: phone apps. Crap and hard to develop with iphone (must pay for developping and for selling) versus much easier and free to try your own thing on android
-
+\item Adaptability.
+\item Long term.
+\item No commercial dead-ends, always available.
+\item Reproducible and reviewed, better code.
+\end{itemize}Î
+And of course, you are contributing to the open knowledge, with all the good repercussion that it has in the global scale.
 \subsection{Two kind of open licenses: Copyleft vs Permissive}
 
 \textbf{Copyleft:} an arrangement whereby software or artistic work may be used, modified, and distributed freely on condition that anything derived from it inherits the same license.\\
@@ -50,7 +47,7 @@ Other example: phone apps. Crap and hard to develop with iphone (must pay for de
 Copyleft licenses, such as GPL, are well considered by the community. Projects with these kind of licenses have usually more chances to attract collaboration from individuals, knowing that their work won't be 'exploited' by third-parties in the future. Copyleft licenses has sometimes called as viral, because any software that makes use of GPL licensed code has to become GPL as well.\\
 
 In the permissive side we have BSD, Apache, MIT, EPL, and a myriad of other licenses. Code under this license can find support from private companies that would take advantage of the development, re-licensing it under their copyright license and monetize from it. Of course, the original code is also free for the competence, which is good for the consumer at the end.\\
-
+[Maß
 There are heated debates in the open source community about what of these two flavors are 'more' free.\\
 If you are thinking about freeing your work to take advantage of the collaborative support of the open source community, or just because you want to contribute to the open knowledge, you should weight the pros and cons of both licenses and choose the one that benefits the most to your project.\\
 Around 70\% of the FOSS projects are under permissive licenses.
@@ -67,26 +64,16 @@ There are many other Unix-like OS. Mac OS for example was born as a fork from a 
 Ubuntu, RedHat, Mint, are all names of different distros that you may have heard. A distribution is a central set of software, built on top of the linux kernel, that adds functionality and provides a friendly interface for the user. 
 Distros usually target users with different requirements. The three main points of divergence between them are three:
 \begin{itemize}
-    \item Software and kernel updates.\\ A web developer may needs cutting-edge updates of the software he/she is using. However, a company developing a heavy piece of new software depending on an external library, don't want to face the new bugs of the last release of that library.
+    \item Software and kernel updates.\\ A web developer may need cutting-edge updates of the software he/she is using. However, a company developing a heavy piece of new software depending on an external library, don't want to face the new bugs of the last release of that library.
     \item Package Manager and software repositories.\\ A package manager is a collection of software tools that automates the process of installing, upgrading, configuring and removing software packages, taking care of mismatches and inter-dependencies. In Linux you usually don't download installers from the web, you use the package manager instead. The packages are bundled into repositories, you have official repositories from your chosen distro, but also you can access to bundles made and maintained for other users. YUM in RedHat derivates (Fedora, Centos), APT for Debian forks (Ubuntu, Mint) are the most famous package managers. Ubuntu package repositories are BIG (Mint has access to them from the version we are installing), so you will be well fed. 
-    \item Desktop Environment.\\ Windows Microsoft name is inspired by its desktop environment. In Linux there are many more options!. The most influent have been Gnome and KDE, with Unity, and Cinnamon getting more adepts, these are very complete environments. In the light side, faster but with less graphical interfaces for some things, we have Xcfe and LXDE. You can even try the non-floating windows desktops, such as i3 or monads. The best thing about the open source branching, is that you can find whatever suits you the best.
+    \item Desktop Environment.\\ Windows Microsoft name is inspired by its desktop environment. In Linux there are many more options. The most influent have been Gnome and KDE, with Unity, and Cinnamon getting more adepts, these are very complete environments. In the light side, faster but with less graphical interfaces for some things, we have Xcfe and LXDE. You can even try the non-floating windows desktops, such as i3 or monads. The best thing about the open source branching, is that you can find whatever suits you the best.
 \end{itemize}
 
 Linux is not only for computer programmers anymore, thanks to the effort of the distros, it is easy to install, thanks to the kernel development, hardware recognition is not a hassle anymore, and thanks to the desktop environment, the navigation through the applications is mint. Since it is \textbf{free}, more and more universities and institutions are using it in a daily basis. There exists non-free distributions of Linux, such as RedHat and Suse, to handle incompatibilities of copyrighted libraries with GNU, and also with extra features to automatize management in big computer networks.\\
 \subsubsection{Mint}
 For this workshop we have chosen Mint -Ubuntu flavor-. It has a standard update policy, with software upgrading every 6 months. There is also a Debian based flavor, that has a rolling updates policy, where the software is continually updated. The package manager is APT, same as ubuntu, and able to access to the huge Ubuntu official repositories. The desktop environment will be Cinnamon, a modern gnome shell fork, that provides a user friendly -windows like- experience.
 
-But of course, there are more alternatives, other distributions are available for you to test if you fancy it.\\
-Ubuntu : User friendly, widely used, easy to find support, and the largest package repository (software that has been already compiled, and it is ready to use after download) \\
-\begin{itemize}
-\item Lubuntu : Ubuntu in a lighter form (less packages, alternative interface), that runs more easily on old computer or small Virtual Machines. \\
-\item Mint : User friendly, new but growing quickly, easy to find support \\
-\item Fedora : More advanced users, good for scientific usage\\
-\item CentOS : Servers, enterprise compatible, long-term live cycle.\\
-\end{itemize}
-Your Linux distribution will run everything from the backstage, as a user, you will deal with the desktop environment, that will provide a graphical interface for navigation within your computer and on Internet, text editor, music reader, etc. 
-%(having windows on your computer when you buy it is not free, same as Mac. If you buy a computer without OS, as you can do in some countries, automatically cheaper (~200\$ cheaper in france - to check))
-
+But of course, there are more alternatives, other distributions are available for you to test if you want; we have bootable DVDS of Centos, Fedora and Kubuntu. But there are plenty of other distros, with new ones arising every month.
 \subsection{Virtual Machine}
 A virtual machine is basically a software that emulates an Operating System. It creates a completely functional and independent 'virtual' machine inside your current OS, as if you had a new computer (Linux) within your computer (Windows or Mac). You start the virtual machine as you would execute any other software. That means Linux will become available to you at a double click distance from your current setup. \\
 The advantages of using a virtual machine are:
@@ -125,6 +112,18 @@ Useful shortcuts:\\
     \label{fig:zotero_shortcuts}
 \end{figure}
 
+\subsubsection{Integration with text processors}
+\label{ssub:integration_with_text_processors}
+It is straight forward! Go to zotero preferences > Cite. And install the integration you want. A plugin will appear in the text processor, where you can insert cites, and also the complete bibliography.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{zotero_word.png}
+    \caption{A plugin will be installed in your word processor, and it will sync with your Zotero library}
+    \label{fig:zotero_word}
+\end{figure}
+\subsubsection{For big libraries: storage options}
+\label{ssub:for_big_libraries_storage_options}
+
 If you have a massive pdf collection, you can be interested in buying some extra space. But there are still free options. Storage pricing for big libraries in Zotero:\\
 \includegraphics[width=0.9\textwidth]{zotero_price.png} \\
 
@@ -135,21 +134,12 @@ Using Dropbox and Zotfile:\\
 If you already have dropbox extra space and not willing to pay extra storage room in a webDAV (reccomended), you can use Dropbox as the storage folder and use Zotfile to rename the pdfs to something legible. This option is the one that I will show, and even though it is a bit brittle, you don't need zotero to access your pdfs.
 
 \subsection{GitHub}
-\url{https://github.com/}
-\section*{Appendix}
-\subsection{Linux Cheat sheet}
-\subsection{List of common open-source software} 
-\begin{itemize}
-\item Python % language or software ?
-\item R % same
-\item Octave 
-\item Latex editor
-\item Source Forge
-\item LibreOffice
-\item Android
-\end{itemize}
+Git is a version control system to work with highly non-linear and parallel inputs.It was created by Linus Torvalds to manage the thousand of people that contributed to the Linux Kernel \url{http://git-scm.com/}. Git allows the different developers work simultaneously in the same code, and then merge their work together. You can create forks, and branches from a version, develop a special feature on it, and put it back later without interfering with others jobs meanwhile.\\
 
-\newpage
+Github is a web server where the software controlled by git can be stored \url{https://github.com/}. It has become the place where the open source community collaborate and communicate, as an alternative to sourceforge.net.\\
+It promotes free and open source project by offering free services to open source project only. There are also free services for students (free hosting of 5 projects plus a set of tools for programming).\\
+Version systems is the only way to collaborate in code, but it can be used for one person project, to keep track of all the changes you have made to a document, or if coding to test crazy ideas creating branches from your stable version.\\
+
 \section{Program}
 \begin{itemize}
 \item 3-4pm Linux Party.\\
